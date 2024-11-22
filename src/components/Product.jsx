@@ -1,13 +1,19 @@
 import React from 'react'
-import { useCart } from '../contexts/CartProvider'
+// import { useCart } from '../contexts/CartProvider'
 import styles from "./Product.module.css";
 import {toast} from "react-toastify";
 import { addItemsCart } from '../Redux/cartSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Product({id,img,  title, price}) {
 const dispatch = useDispatch();
-const { addItemsCart, cart} = useCart()
+const cart = useSelector((state) => state.myCart);
+// console.log("initial state mile gi", cart)
+useSelector((state)=>{
+console.log("state mile gi", state)
+})
+
+// const { addItemsCart, cart} = useCart()
 
 function handleAdd (){  
   const isProductInCart = cart.some(item => item.id === id);
@@ -28,7 +34,10 @@ function handleAdd (){
   }
 
  console.log("products add", newCartItem)
- addItemsCart(newCartItem);
+//  addItemsCart(newCartItem);
+
+ dispatch(addItemsCart(newCartItem));
+
 
  toast.success("Product added", {
   autoClose: 1000,  // Toast will disappear after 2 seconds

@@ -9,13 +9,14 @@ import { store } from "./Redux/store";
 
 function App() {
   return (
-    <provider store={store}>
+    <Provider store={store}>
       <CartProvider>
         <ToastContainer />
         <Header />
         <Products />
       </CartProvider>
-    </provider>
+      </Provider>
+   
   );
 }
 

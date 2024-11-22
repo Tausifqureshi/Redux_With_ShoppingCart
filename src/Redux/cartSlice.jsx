@@ -5,7 +5,9 @@ const cartSlice = createSlice({
 
   reducers: {
     addItemsCart: (state, action) => {
-      return [...state, action.payload];
+      state.push(action.payload); //is tara bhi kar sakte hai dono me se jo hasan pare but kaam same hi hora hai ye immer library use kar ra hai aise karne se
+
+      // return [...state, action.payload];
     },
 
     increaseQty: (state, action) => {
