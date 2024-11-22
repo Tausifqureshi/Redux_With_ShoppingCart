@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Cart.module.css";
 import { useCart } from "../contexts/CartProvider";
 import CartItem from "./CartItem";
-function Cart() {
+function Cart() { 
   const { cart } = useCart();
   const totalAmount = cart
     .reduce((accumulator, currentValue) => {
