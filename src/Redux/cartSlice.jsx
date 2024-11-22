@@ -35,6 +35,6 @@ const cartSlice = createSlice({
   },
 });
 console.log(cartSlice.actions);
-export const { addItem, increment, decrement, removeItem } = cartSlice.actions;
+export const {  addItemsCart, increaseQty, decreaseQty, removeItemFromCart } = cartSlice.actions;
 
 export default cartSlice;

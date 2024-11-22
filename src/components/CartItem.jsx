@@ -1,58 +1,12 @@
-// import React from "react";
-// import { useCart } from "../contexts/CartProvider";
-// import styles from "./CartItem.module.css";
-
-// function CartItem({ id, price, title, img, quantity }) {
-//   const { increaseQty, decreaseQty, removeItmes } = useCart();
-//   return (
-//     <div>
-//       <p>id: {id}</p>
-//       <p>title: {title}</p>
-//       <p>
-//         Price: {price} * {quantity} = {price * quantity}
-//       </p>
-//       <p>quantity: {quantity}</p>
-//       <p>id: {id}</p>
-//       <img src={img} alt={title} height={40} />
-//       <button
-//         onClick={() => {
-//           increaseQty(id);
-//         }}
-//       >
-//         Increase
-//       </button>
-
-//       <button
-//         onClick={() => {
-//           if (quantity > 0) { //zero se kam tu is se kam products kam nhi hoge.
-//             decreaseQty(id);
-//           }
-//         }}
-//         disabled={quantity <= 0} //button disabled ho jaye ga zero ke baad.
-//       >
-//         Decrease
-//       </button>
-
-//       <button
-//         onClick={() => {
-//           removeItmes(id);
-//         }}
-//       >
-//         Delete
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default CartItem;
-
-
-
 import React from "react";
 import { useCart } from "../contexts/CartProvider";
 import styles from "./CartItem.module.css";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
+import { useDispatch } from "react-redux";
+import { increaseQty,decreaseQty,removeItemFromCart } from "../Redux/cartSlice";
+
+
 function CartItem({ id, price, img, title, quantity }) {
     const { increaseQty, decreaseQty, removeItemFromCart } = useCart();
     return (
