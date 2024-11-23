@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: [],
-
+         
   reducers: {
     addItemsCart: (state, action) => {
       state.push(action.payload); //is tara bhi kar sakte hai dono me se jo hasan pare but kaam same hi hora hai ye immer library use kar ra hai aise karne se. Redux Toolkit me directly state ko modify kar sakte hain `state.push()` ka use karke. kyunki ye `immer` library ke through immutable updates handle karta hai.
