@@ -12,30 +12,52 @@ const cartSlice = createSlice({
     },
 
     increaseQty: (state, action) => {
-      return state.map((item) => {
-        if (item.id === action.payload.id) {
-          console.log("increase item id", action.payload);
-          return { ...item, quantity: item.quantity + 1 }; // Increase quantity if item matches
-        }
-        return item; // Return the item unchanged if it doesn't match
-      });
+      console.log("increase item id", action.payload);
+      const item = state.find((item) => item.id === action.payload.id);
+      if (item) {
+        console.log("increase item id", action.payload);
+        item.quantity += 1; 
+      }
+      
 
-
+      // return state.map((item) => {
+      //   if (item.id === action.payload.id) {
+      //     console.log("increase item id", action.payload);
+      //     return { ...item, quantity: item.quantity + 1 }; 
+      //   }
+      //   return item; 
+      // });
     },
 
+    
     decreaseQty: (state, action) => {
-      return state.map((item) => {
-        if (item.id === action.payload.id) {
-          console.log("decrease item id", action.payload);
-          return { ...item, quantity: item.quantity - 1 }; // Increase quantity if item matches
-        }
-        return item; // Return the item unchanged if it doesn't match
-      });
+      console.log("decrease item id", action);
+      // state.forEach((item)=>{
+      //   if(item.id === action.payload.id){
+      //      item.quantity -=1
+      //   }
+      // })
 
-      
+        const item = state.find((item) => item.id === action.payload.id);
+        if (item && item.quantity > 1) {
+          console.log("decrease item id", action.payload);
+          item.quantity -= 1; // Decrement quantity
+        }
+  
+      // return state.map((item) => {
+      //   if (item.id === action.payload.id) {
+      //     console.log("decrease item id", action.payload);
+      //     return { ...item, quantity: item.quantity - 1 }; // Increase quantity if item matches
+      //   }
+      //   return item; 
+      // });
+       
+     
+
     },
     
     removeItemFromCart: (state, action) => {
+      // Redux Toolkit automatically ensures immutability
     return state.filter((item)=> item.id !== action.payload.id);
         
     },

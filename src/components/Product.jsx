@@ -17,6 +17,8 @@ const cart = useSelector((state) => state.myCart);
 
 function handleAdd (){  
   const isProductInCart = cart.some(item => item.id === id);
+  // console.log(isProductInCart,"add");
+  
   //check ek products agar add hai fir se add nhi hoga. cart ko ham useCart se lere hai Destructuring se.
   if (isProductInCart) {
    toast.info("Product already added",{

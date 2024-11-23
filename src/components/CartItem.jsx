@@ -26,9 +26,9 @@ function CartItem({ id, price, img, title, quantity }) {
                 <div className={styles.qtyInput}>
                     <button
                         onClick={() => { 
-                            if (quantity <= 1) { //1 se kam tu is se kam products kam nhi hoge.
-                                return;
-                            }
+                            // if (quantity <= 1) { //1 se kam tu is se kam products kam nhi hoge.
+                            //     return;
+                            // }
                             // decreaseQty(id);
                             dispatch(decreaseQty({ id: id }));
                             
