@@ -5,7 +5,8 @@ const cartSlice = createSlice({
 
   reducers: {
     addItemsCart: (state, action) => {
-      state.push(action.payload); //is tara bhi kar sakte hai dono me se jo hasan pare but kaam same hi hora hai ye immer library use kar ra hai aise karne se
+      state.push(action.payload); //is tara bhi kar sakte hai dono me se jo hasan pare but kaam same hi hora hai ye immer library use kar ra hai aise karne se.
+      console.log("addItemsCart", action)  // Redux me action ek object hota hai, aur uske andar hamesha ek payload hota hai jo main data ko hold karta hai. Hum sirf payload ki value access karte hain, type ko alag se specify karne ki zarurat nahi hoti.  Ye thoda alag hai useReducer se, jisme hume type manually dena padta tha.
 
       // return [...state, action.payload];
     },
@@ -18,6 +19,8 @@ const cartSlice = createSlice({
         }
         return item; // Return the item unchanged if it doesn't match
       });
+
+
     },
 
     decreaseQty: (state, action) => {
@@ -28,6 +31,8 @@ const cartSlice = createSlice({
         }
         return item; // Return the item unchanged if it doesn't match
       });
+
+      
     },
     
     removeItemFromCart: (state, action) => {

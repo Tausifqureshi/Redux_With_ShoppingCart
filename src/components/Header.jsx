@@ -5,10 +5,17 @@ import styles from "./Header.module.css";
 import { BsCartFill } from "react-icons/bs";
 import Container from "./UI/Container";
 import { useCart } from "../contexts/CartProvider";
+import { useSelector } from "react-redux";
+
 
 
 function Header() {
-    const { cart } = useCart();
+    // const { cart } = useCart();
+const cart = useSelector((state) => state.myCart);
+// console.log("initial state mile gi", cart)
+useSelector((state)=>{
+console.log("state mile gi header page ke liye", state)
+})
     const totalQuantity = cart .reduce((accumulator, currentValue) => {
       return accumulator + currentValue.quantity; // quanty bade gi utne hi itme show hoge. agr only products dhekna hai tu cart.length kar sakta hai but amzone me quantity jaisa hi use hai.
     }, 0)
