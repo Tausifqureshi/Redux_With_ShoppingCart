@@ -9,9 +9,9 @@ function Product({id,img,  title, price}) {
 const dispatch = useDispatch();
 const cart = useSelector((state) => state.myCart);
 // console.log("initial state mile gi", cart)
-useSelector((state)=>{
-console.log("state mile gi", state)
-})
+// useSelector((state)=>{
+// console.log("state mile gi products page", state)
+// })
 
 // const { addItemsCart, cart} = useCart()
 
@@ -33,9 +33,9 @@ function handleAdd (){
     quantity: 1,
   }
 
- console.log("products add", newCartItem)
-//  addItemsCart(newCartItem);
+ console.log("products add", newCartItem);
 
+//  addItemsCart(newCartItem);
  dispatch(addItemsCart(newCartItem));
 
 

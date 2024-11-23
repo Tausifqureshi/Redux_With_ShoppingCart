@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../contexts/CartProvider";
+// import { useCart } from "../contexts/CartProvider";
 import styles from "./CartItem.module.css";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
@@ -7,8 +7,10 @@ import { useDispatch } from "react-redux";
 import { increaseQty,decreaseQty,removeItemFromCart } from "../Redux/cartSlice";
 
 
+
 function CartItem({ id, price, img, title, quantity }) {
-    const { increaseQty, decreaseQty, removeItemFromCart } = useCart();
+    // const { increaseQty, decreaseQty, removeItemFromCart } = useCart();
+    const dispatch = useDispatch();
     return (
         <div className={styles.cartItem}>
             {/* left  */}
@@ -27,7 +29,9 @@ function CartItem({ id, price, img, title, quantity }) {
                             if (quantity <= 1) { //1 se kam tu is se kam products kam nhi hoge.
                                 return;
                             }
-                            decreaseQty(id);
+                            // decreaseQty(id);
+                            dispatch(decreaseQty({ id: id }));
+                            
                         }}
                     >
                         <AiOutlineMinus />
@@ -36,7 +40,8 @@ function CartItem({ id, price, img, title, quantity }) {
                     <span className={styles.quantityDisplay}>{quantity}</span>
                     <button
                         onClick={() => {
-                            increaseQty(id);
+                            // increaseQty(id);
+                           dispatch(increaseQty({ id: id }));
                         }}
                     >
                         <AiOutlinePlus />
@@ -48,7 +53,8 @@ function CartItem({ id, price, img, title, quantity }) {
                 <button
                     className={styles.removeItemBtn}
                     onClick={() => {
-                        removeItemFromCart(id);
+                        //removeItemFromCart(id);
+                         dispatch(removeItemFromCart({ id: id }));
                     }}
                 >
                     <ImCross />
