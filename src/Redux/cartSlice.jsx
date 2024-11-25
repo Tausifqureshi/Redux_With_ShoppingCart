@@ -9,7 +9,7 @@ const cartSlice = createSlice({
 
       console.log("addItemsCart", action)  // Redux me action ek object hota hai, aur uske andar hamesha ek payload hota hai jo main data ko hold karta hai. Hum sirf payload ki value access karte hain, type ko alag se specify karne ki zarurat nahi hoti.  Ye thoda alag hai useReducer se, jisme hume type manually dena padta tha.
 
-      // return [...state, action.payload];
+      // return [...state, action.payload]; 
     },
 
     increaseQty: (state, action) => {

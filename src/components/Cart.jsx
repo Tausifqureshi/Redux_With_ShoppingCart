@@ -1,14 +1,11 @@
 import React from "react";
 import styles from "./Cart.module.css";
-// import { useCart } from "../contexts/CartProvider";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 
 function Cart() { 
-  // const { cart } = useCart();
-
 const cart = useSelector((state) => state.myCart);
-// console.log("initial state mile gi", cart)
+// console.log("initial state mile gi cart page ki", cart)
 useSelector((state)=>{
 console.log("state mile gi cart page ki", state)
 })

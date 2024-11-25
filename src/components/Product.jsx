@@ -1,5 +1,4 @@
 import React from 'react'
-// import { useCart } from '../contexts/CartProvider'
 import styles from "./Product.module.css";
 import {toast} from "react-toastify";
 import { addItemsCart } from '../Redux/cartSlice';
@@ -8,10 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 function Product({id,img,  title, price}) {
 const dispatch = useDispatch();
 const cart = useSelector((state) => state.myCart);
-// console.log("initial state mile gi", cart)
-// useSelector((state)=>{
-// console.log("state mile gi products page", state)
-// })
+console.log("initial state mile gi products page", cart)
+
+useSelector((state)=>{
+console.log("state mile gi products page", state)
+})
 
 // const { addItemsCart, cart} = useCart()
 

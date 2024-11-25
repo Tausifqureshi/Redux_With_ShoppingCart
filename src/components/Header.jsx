@@ -4,7 +4,6 @@ import Cart from "./Cart";
 import styles from "./Header.module.css";
 import { BsCartFill } from "react-icons/bs";
 import Container from "./UI/Container";
-import { useCart } from "../contexts/CartProvider";
 import { useSelector } from "react-redux";
 
 
@@ -12,7 +11,7 @@ import { useSelector } from "react-redux";
 function Header() {
     // const { cart } = useCart();
 const cart = useSelector((state) => state.myCart);
-// console.log("initial state mile gi", cart)
+// console.log("initial state mile gi header page ke liye", cart)
 useSelector((state)=>{
 console.log("state mile gi header page ke liye", state)
 })
