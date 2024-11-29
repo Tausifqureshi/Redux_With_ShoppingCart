@@ -57,7 +57,7 @@ const cartSlice = createSlice({
        
      
 
-    },
+    },  
     
     removeItemFromCart: (state, action) => {
     // Ye removeItemFromCart cart me kisi item ko completely remove karne ke liye hai.
