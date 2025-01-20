@@ -22,7 +22,7 @@ console.log("state mile gi header page ke liye", state)
   function closeModal() {
     setIsModalOpen(false);
   }
-  useEffect(() => {
+  useEffect(() => {z
     //jab modal open hoga tu products scroll nhi hoge.jab close modal tab scroll hoge ye conditions se.
     console.log("open Modal", isModalOpen);
     if (isModalOpen) {
