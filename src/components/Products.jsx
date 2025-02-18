@@ -7,7 +7,7 @@ import Container from "./UI/Container";
 function Products() {
   return (
     <Container>
-     <h1>Best All Products</h1>
+      <h1>Best All Products</h1>
       <div className={styles.products}>
         {products.map((items, index) => (
           <Product key={items.id} {...items} />

@@ -3,12 +3,12 @@ import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 
-function Cart() { 
-const cart = useSelector((state) => state.myCart);
-// console.log("initial state mile gi cart page ki", cart)
-useSelector((state)=>{
-console.log("state mile gi cart page ki", state)
-})
+function Cart() {
+  const cart = useSelector((state) => state.myCart);
+  // console.log("initial state mile gi cart page ki", cart)
+  useSelector((state) => {
+    console.log("state mile gi cart page ki", state);
+  });
   const totalAmount = cart
     .reduce((accumulator, currentValue) => {
       return accumulator + currentValue.price * currentValue.quantity;
@@ -26,7 +26,9 @@ console.log("state mile gi cart page ki", state)
       <div>
         {/* Return statement ke sath */}
         {cart.map((itmecart, index) => {
-          {/* console.log(cart); */}
+          {
+            /* console.log(cart); */
+          }
           return <CartItem key={itmecart.title} {...itmecart} />;
         })}
       </div>
