@@ -15,15 +15,16 @@ const cartSlice = createSlice({
     increaseQty: (state, action) => {
       // Ye increaseQty cart me kisi specific item ki quantity badhane ke liye hai.
       // `find` ka use karke ek item dhoondhte hain aur uski quantity directly increment karte hain.
-
-      console.log("increase item id", action.payload); //Payload me wahi item ki id pass hoti hai jiska quantity badhana hai.
+        //  mutabe code
+      console.log("increase item id", action.payload); //Payload me wahi item ki id pass hoti hai jiska quantity badhana hai. 
       const item = state.find((item) => item.id === action.payload.id); // `find` se wahi item milta hai jo `action.payload.id` se match karta hai.
 
       if (item) {
         console.log("increase item id", action.payload);
         item.quantity += 1; // Item ka `quantity` property directly increment kar diya.
       }
-
+ 
+      // immutable code
       // return state.map((item) => {
       //   if (item.id === action.payload.id) {
       //     console.log("increase item id", action.payload);
@@ -38,12 +39,14 @@ const cartSlice = createSlice({
       // `find` ka use karke ek item dhoondhte hain aur uski quantity decrement karte hain.
       // Quantity tabhi kam hoti hai jab wo 1 se zyada ho, taaki quantity negative na ho.
 
+      // Ye bhi mutabe code hai.
       console.log("decrease item id", action); // Payload me wahi item ki id hoti hai jiska quantity kam karna hai.
       const item = state.find((item) => item.id === action.payload.id); //find` ka use kiya kyunki sirf ek item modify karna hai.
       if (item && item.quantity > 1) {
         item.quantity -= 1; // Sirf tab kam karega jab quantity 1 se zyada ho.
       }
 
+      // Ye immutable code hai.
       // return state.map((item) => {
       //   if (item.id === action.payload.id) {
       //     console.log("decrease item id", action.payload);
@@ -57,8 +60,12 @@ const cartSlice = createSlice({
       // Ye removeItemFromCart cart me kisi item ko completely remove karne ke liye hai.
       // `filter` ka use karke wo item hata dete hain jiska id `action.payload.id` se match karta hai.
       // `filter` naya array banata hai jo immutability ensure karta hai.
+
+      // 
       return state.filter((item) => item.id !== action.payload.id); //Payload me wahi id hoti hai jo delete karni hai.
       // Note: `filter` nayi array banata hai aur purani state ko nahi badalta. Isliye Redux me hume manually state copy karne ki zarurat nahi hoti.
+
+
     },
   },
 });
